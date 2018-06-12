@@ -68,7 +68,7 @@ Attribute | Type | Description
 totalCount | Integer | The count of scaffolds
 list | [TransactionDto](#transaction-dto-attributes)[] | The scaffold`s transactions
 
-### Transaction dto attributes
+### Transaction dto attributes:
 Attribute | Type | Description
 --------- | -------- |-----------
 scaffold | [ScaffoldDto](#scaffold-dto-attributes) | The user`s scaffold

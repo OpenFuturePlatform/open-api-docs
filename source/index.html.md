@@ -43,21 +43,20 @@ Before interacting with the OPEN Platform, it is necessary to create an account 
 > To authorize, use this code:
 
 ```shell
-# With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
-  -H "Authorization: your_openKey"
+  -H "Authorization: OPEN_KEY"
 ```
 
-> Make sure to replace `your_openKey` with your API key.
+> Make sure to replace `OPEN_KEY` with your API key.
 
 OPEN Platform uses `OpenKeys` to allow access to the API. You can register a new `OpenKey` at your [Account](https://api.openfuture.io).
 
 OPEN Platform expects for the `OpenKey` to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: your_openKey`
+`Authorization: OPEN_KEY`
 
 <aside class="notice">
-You must replace <code>your_openKey</code> with your personal API key.
+You must replace <code>OPEN_KEY</code> with your personal API key.
 </aside>
 
 # Terminology
