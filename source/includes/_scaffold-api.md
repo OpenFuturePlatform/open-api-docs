@@ -179,14 +179,14 @@ The endpoint compiles scaffold.
 
 `POST https://api.openfuture.io/api/scaffolds/doCompile`
 
-### Request attributes
+### Request attributes:
 
 Attribute | Type | Description
 --------- | -------- |-----------
 openKey | String | The openKey`s value
 properties | [ScaffoldPropertyDto](#scaffold-property-dto-attributes)[] | The scaffold`s properties
 
-### Response attributes
+### Response attributes:
 
 Attribute | Type | Description
 --------- | -------- |-----------
@@ -227,7 +227,7 @@ The endpoint deploys scaffold.
 
 `POST https://api.openfuture.io/api/scaffolds/doDeploy`
 
-### Request attributes
+### Request attributes:
 
 Attribute | Type | Description
 --------- | -------- |-----------
@@ -279,7 +279,7 @@ The endpoint saves scaffold.
 
 `POST https://api.openfuture.io/api/scaffolds`
 
-### Request attributes
+### Request attributes:
 
 Attribute | Type | Description
 --------- | -------- |-----------
@@ -319,7 +319,7 @@ The endpoint sets webhook.
 
 `PATCH https://api.openfuture.io/api/scaffolds/0x0000000000000000000000000000000000000000`
 
-### Request attributes
+### Request attributes:
 
 Attribute | Type | Description
 --------- | -------- |-----------
