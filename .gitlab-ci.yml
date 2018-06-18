@@ -23,7 +23,6 @@ test:
     - bundle exec middleman build
   except:
     - master
-    - schedules
 
 
 ##############
@@ -44,8 +43,6 @@ build-pages:
       - public
   only:
     - master
-  except:
-    - schedules
 
 
 ################
@@ -71,5 +68,3 @@ deploy-to-server:
     url: https://docs.openfuture.io
   only:
     - master
-  except:
-    - schedules
