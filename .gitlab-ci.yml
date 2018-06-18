@@ -1,10 +1,21 @@
 image: ruby:2.3
 
+stages:
+  - tests
+  - build
+  - deploy
+
 cache:
   paths:
     - vendor
 
+
+##############
+# Tests
+##############
+
 test:
+  stage: tests
   script:
     - apt-get update -yqqq
     - apt-get install -y nodejs
@@ -12,8 +23,15 @@ test:
     - bundle exec middleman build
   except:
     - master
+    - schedules
 
-pages:
+
+##############
+# Build
+##############
+
+build-pages:
+  stage: build
   script:
     - apt-get update -yqqq
     - apt-get install -y nodejs
@@ -26,3 +44,32 @@ pages:
       - public
   only:
     - master
+  except:
+    - schedules
+
+
+################
+# Deploy
+################
+
+.before_script: &before_deploy
+  - apt-get update -y && apt-get install openssh-client rsync -y
+  - eval $(ssh-agent -s)
+  - echo "$DEPLOY_KEY" | tr -d '\r' | ssh-add - > /dev/null
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - ssh-keyscan $DEPLOY_HOST >> ~/.ssh/known_hosts
+  - chmod 644 ~/.ssh/known_hosts
+
+deploy-to-server:
+  stage: deploy
+  before_script: *before_deploy
+  script:
+    - rsync -avzhO --no-p --delete -e ssh public/ $DEPLOY_USER@$DEPLOY_HOST:/var/www/docs.openfuture.io/
+  environment:
+    name: production
+    url: https://docs.openfuture.io
+  only:
+    - master
+  except:
+    - schedules
