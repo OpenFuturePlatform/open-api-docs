@@ -4,6 +4,7 @@ stages:
   - tests
   - build
   - deploy
+  - certificates
 
 cache:
   paths:
@@ -22,7 +23,7 @@ test:
     - bundle exec middleman build
   except:
     - master
-
+    - schedules
 
 ##############
 # Build
@@ -41,7 +42,8 @@ pages:
       - public
   only:
     - master
-
+  except:
+    - schedules
 
 ################
 # Deploy
@@ -65,3 +67,28 @@ deploy-to-server:
     url: https://docs.openfuture.io
   only:
     - master
+  except:
+    - schedules
+
+################
+# Certificates
+################
+certificates:
+  stage: certificates
+  script:
+    - |
+      ssh ${DEPLOY_USER}@${DEPLOY_HOST} "
+        docker run --rm --name certbot \
+        -v /etc/letsencrypt:/etc/letsencrypt \
+        -v /var/www/certbot:/var/www/certbot \
+        -v /var/log/letsencrypt:/var/log/letsencrypt \
+        certbot/certbot \
+        certonly --webroot -w /var/www/certbot/ \
+        -d docs.openfuture.io \
+        --renew-by-default -m devops@zensoft.io --eff-email --agree-tos --manual-public-ip-logging-ok
+      "
+    - ssh ${DEPLOY_USER}@${DEPLOY_HOST} "sudo service nginx reload"
+  environment:
+    name: production
+  only:
+    - schedules
