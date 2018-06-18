@@ -13,7 +13,6 @@ cache:
 ##############
 # Tests
 ##############
-
 test:
   stage: tests
   script:
@@ -28,8 +27,7 @@ test:
 ##############
 # Build
 ##############
-
-build-pages:
+pages:
   stage: build
   script:
     - apt-get update -yqqq
@@ -48,7 +46,6 @@ build-pages:
 ################
 # Deploy
 ################
-
 .before_script: &before_deploy
   - apt-get update -y && apt-get install openssh-client rsync -y
   - eval $(ssh-agent -s)
