@@ -75,6 +75,7 @@ deploy-to-server:
 ################
 certificates:
   stage: certificates
+  before_script: *before_deploy
   script:
     - |
       ssh ${DEPLOY_USER}@${DEPLOY_HOST} "
