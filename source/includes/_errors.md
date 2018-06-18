@@ -48,6 +48,6 @@ Error Status | Meaning
 403 | Forbidden - You don`t have an appropriate roles.
 404 | Not Found - The specified OPEN Platform could not be found.
 405 | Method Not Allowed - You tried to access a OPEN Platform with an invalid method.
-406 | Not Acceptable -- You requested a format that isn't json.
+406 | Not Acceptable - You requested a format that isn't json.
 409 | Conflict - Conflicts are in database
 500 | Internal Server Error - We had a problem with our server. Try again later.
