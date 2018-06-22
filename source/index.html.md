@@ -13,6 +13,8 @@ includes:
   - openkey-api
   - transaction-api
   - scaffold-api
+  - scaffold-templates-api
+  - share-holder-api
   - errors
 
 search: true
