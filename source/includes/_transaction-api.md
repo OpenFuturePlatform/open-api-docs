@@ -1,5 +1,129 @@
 # Transaction API
 
+When performing any method of a smart contract Open Platform catches
+the corresponding event.
+
+> Events can be presented through the following JSONs:
+
+### Events
+
+```json
+{
+  activated: false,
+  type: "ACTIVATED_SCAFFOLD"
+}
+```
+
+#### Activate scaffold event attributes:
+Attribute | Type | Description
+--------- | -------- |-----------
+activated | Boolean | Activated or deactivated scaffold
+type | [EventType](#event-types) | The type of event
+
+```json
+{
+  userAddress: "0x00000000000000000000000000000000",
+  partnerShare: 10,
+  type: "ADDED_SHARE_HOLDER"
+}
+```
+
+#### Added Share Holder event attributes:
+Attribute | Type | Description
+--------- | -------- |-----------
+userAddress | String | The address of share holder
+partnerShare | BigInteger | Share of profits
+type | [EventType](#event-types) | The type of event
+
+```json
+{
+  userAddress: "0x00000000000000000000000000000000",
+  type: "DELETED_SHARE_HOLDER"
+}
+```
+
+#### Deleted Share Holder event attributes:
+Attribute | Type | Description
+--------- | -------- |-----------
+userAddress | String | The address of share holder
+type | [EventType](#event-types) | The type of event
+
+```json
+{
+  userAddress: "0x00000000000000000000000000000000",
+  partnerShare: 10,
+  type: "EDITED_SHARE_HOLDER"
+}
+```
+
+#### Edited Share Holder event attributes:
+Attribute | Type | Description
+--------- | -------- |-----------
+userAddress | String | The address of share holder
+partnerShare | BigInteger | Share of profits
+type | [EventType](#event-types) | The type of event
+
+```json
+{
+  amount: 1000,
+  toAddress: "0x00000000000000000000000000000000",
+  type: "FUNDS_DEPOSITED"
+}
+```
+
+#### Funds Deposited event attributes:
+Attribute | Type | Description
+--------- | -------- |-----------
+amount | BigInteger | The amount of money
+toAddress | String | The address to
+type | [EventType](#event-types) | The type of event
+
+```json
+{
+  userAddress: "0x00000000000000000000000000000000",
+  amount: 1000,
+  type: "PAYED_FOR_SHARE_HOLDER"
+}
+```
+
+#### Payed For Share Holder event attributes:
+Attribute | Type | Description
+--------- | -------- |-----------
+userAddress | String | The address of share holder
+amount | BigInteger | The amount of money
+type | [EventType](#event-types) | The type of event
+
+```json
+{
+  customerAddress: "0x00000000000000000000000000000000",
+  transactionAmount: 10,
+  scaffoldTransactionIndex: 10,
+  properties: {
+    userId: 5,
+    type: "male"
+  },
+  type: "PAYMENT_COMPLETED"
+}
+```
+
+#### Payment Completed event attributes:
+Attribute | Type | Description
+--------- | -------- |-----------
+customerAddress | String | The address of customer
+transactionAmount | BigInteger | The amount of money which customer puts
+scaffoldTransactionIndex | BigInteger | The number of transaction
+properties | MAP | The properties which customer created for scaffold
+type | [EventType](#event-types) | The type of event
+
+#### Event types:
+1. ACTIVATED_SCAFFOLD
+2. ADDED_SHARE_HOLDER
+3. EDITED_SHARE_HOLDER
+4. DELETED_SHARE_HOLDER
+5. FUNDS_DEPOSITED
+6. PAYED_FOR_SHARE_HOLDER
+7. PAYMENT_COMPLETED
+
 ## Get all transactions
 
 > To get all transactions use this code:
@@ -44,7 +168,11 @@ curl "https://api.openfuture.io/api/scaffolds/0x00000000000000000000000000000000
         ],
         "enabled": false
       },
-      "data": "data binary",
+      "event": {
+         userAddress: "0x00000000000000000000000000000000",
+         amount: 1000,
+         type: "PAYED_FOR_SHARE_HOLDER"
+      },
       "type": "type of transaction"
     }
   ]
@@ -72,6 +200,6 @@ list | [TransactionDto](#transaction-dto-attributes)[] | The scaffold`s transact
 Attribute | Type | Description
 --------- | -------- |-----------
 scaffold | [ScaffoldDto](#scaffold-dto-attributes) | The user`s scaffold
-data | String | The binary data of transaction
+event | [Event](#events) | The binary data of transaction
 type | String | The type of transaction
 
