@@ -5,16 +5,16 @@ the corresponding event.
 
 > Events can be presented through the following JSONs:
 
-### Events
+## Events
 
 ```json
 {
-  activated: false,
-  type: "ACTIVATED_SCAFFOLD"
+  "activated": false,
+  "type": "ACTIVATED_SCAFFOLD"
 }
 ```
 
-#### Activate scaffold event attributes:
+### Activate scaffold event attributes:
 Attribute | Type | Description
 --------- | -------- |-----------
 activated | Boolean | Activated or deactivated scaffold
@@ -22,13 +22,13 @@ type | [EventType](#event-types) | The type of event
 
 ```json
 {
-  userAddress: "0x00000000000000000000000000000000",
-  partnerShare: 10,
-  type: "ADDED_SHARE_HOLDER"
+  "userAddress": "0x00000000000000000000000000000000",
+  "partnerShare": 10,
+  "type": "ADDED_SHARE_HOLDER"
 }
 ```
 
-#### Added Share Holder event attributes:
+### Added Share Holder event attributes:
 Attribute | Type | Description
 --------- | -------- |-----------
 userAddress | String | The address of share holder
@@ -37,12 +37,12 @@ type | [EventType](#event-types) | The type of event
 
 ```json
 {
-  userAddress: "0x00000000000000000000000000000000",
-  type: "DELETED_SHARE_HOLDER"
+  "userAddress": "0x00000000000000000000000000000000",
+  "type": "DELETED_SHARE_HOLDER"
 }
 ```
 
-#### Deleted Share Holder event attributes:
+### Deleted Share Holder event attributes:
 Attribute | Type | Description
 --------- | -------- |-----------
 userAddress | String | The address of share holder
@@ -50,13 +50,13 @@ type | [EventType](#event-types) | The type of event
 
 ```json
 {
-  userAddress: "0x00000000000000000000000000000000",
-  partnerShare: 10,
-  type: "EDITED_SHARE_HOLDER"
+  "userAddress": "0x00000000000000000000000000000000",
+  "partnerShare": 10,
+  "type": "EDITED_SHARE_HOLDER"
 }
 ```
 
-#### Edited Share Holder event attributes:
+### Edited Share Holder event attributes:
 Attribute | Type | Description
 --------- | -------- |-----------
 userAddress | String | The address of share holder
@@ -65,13 +65,13 @@ type | [EventType](#event-types) | The type of event
 
 ```json
 {
-  amount: 1000,
-  toAddress: "0x00000000000000000000000000000000",
-  type: "FUNDS_DEPOSITED"
+  "amount": 1000,
+  "toAddress": "0x00000000000000000000000000000000",
+  "type": "FUNDS_DEPOSITED"
 }
 ```
 
-#### Funds Deposited event attributes:
+### Funds Deposited event attributes:
 Attribute | Type | Description
 --------- | -------- |-----------
 amount | BigInteger | The amount of money
@@ -80,13 +80,13 @@ type | [EventType](#event-types) | The type of event
 
 ```json
 {
-  userAddress: "0x00000000000000000000000000000000",
-  amount: 1000,
-  type: "PAYED_FOR_SHARE_HOLDER"
+  "userAddress": "0x00000000000000000000000000000000",
+  "amount": 1000,
+  "type": "PAYED_FOR_SHARE_HOLDER"
 }
 ```
 
-#### Payed For Share Holder event attributes:
+### Payed For Share Holder event attributes:
 Attribute | Type | Description
 --------- | -------- |-----------
 userAddress | String | The address of share holder
@@ -95,18 +95,18 @@ type | [EventType](#event-types) | The type of event
 
 ```json
 {
-  customerAddress: "0x00000000000000000000000000000000",
-  transactionAmount: 10,
-  scaffoldTransactionIndex: 10,
-  properties: {
-    userId: 5,
-    type: "male"
+  "customerAddress": "0x00000000000000000000000000000000",
+  "transactionAmount": 10,
+  "scaffoldTransactionIndex": 10,
+  "properties": {
+    "userId": 5,
+    "type": "male"
   },
-  type: "PAYMENT_COMPLETED"
+  "type": "PAYMENT_COMPLETED"
 }
 ```
 
-#### Payment Completed event attributes:
+### Payment Completed event attributes:
 Attribute | Type | Description
 --------- | -------- |-----------
 customerAddress | String | The address of customer
@@ -115,7 +115,7 @@ scaffoldTransactionIndex | BigInteger | The number of transaction
 properties | MAP | The properties which customer created for scaffold
 type | [EventType](#event-types) | The type of event
 
-#### Event types:
+### Event types:
 1. ACTIVATED_SCAFFOLD
 2. ADDED_SHARE_HOLDER
 3. EDITED_SHARE_HOLDER
@@ -169,9 +169,9 @@ curl "https://api.openfuture.io/api/scaffolds/0x00000000000000000000000000000000
         "enabled": false
       },
       "event": {
-         userAddress: "0x00000000000000000000000000000000",
-         amount: 1000,
-         type: "PAYED_FOR_SHARE_HOLDER"
+         "userAddress": "0x00000000000000000000000000000000",
+         "amount": 1000,
+         "type": "PAYED_FOR_SHARE_HOLDER"
       },
       "type": "type of transaction"
     }
@@ -200,6 +200,6 @@ list | [TransactionDto](#transaction-dto-attributes)[] | The scaffold`s transact
 Attribute | Type | Description
 --------- | -------- |-----------
 scaffold | [ScaffoldDto](#scaffold-dto-attributes) | The user`s scaffold
-event | [Event](#events) | The binary data of transaction
+event | [Event](#events) | The event which came with transaction
 type | String | The type of transaction
 
