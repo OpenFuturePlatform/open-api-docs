@@ -33,12 +33,11 @@ percent | String | The percentage of income
 > To update share holder use this code:
 
 ```shell
-curl "https://api.openfuture.io/api/scaffolds/0x0000000000000000000000000000000000000000/holders"
+curl "https://api.openfuture.io/api/scaffolds/0x0000000000000000000000000000000000000000/holders/{holderAddress}"
   -X PUT
   -H "Authorization: OPEN_KEY"
   -H "Content-Type: application/json"
   -d '{
-        "address": "0x1c297f40beb075936d6dbe4b245b92738867ecb1",
         "percent": 30
     }'
 ```
@@ -47,13 +46,12 @@ The endpoint edits share holder.
 
 ### HTTP Request
 
-`PUT https://api.openfuture.io/api/scaffolds/0x0000000000000000000000000000000000000000/holders`
+`PUT https://api.openfuture.io/api/scaffolds/0x0000000000000000000000000000000000000000/holders/{holderAddress}`
 
 ### Request attributes:
 
 Attribute | Type | Description
 --------- | -------- |-----------
-address | String | The address of wallet of share holder
 percent | String | The percentage of income
 
 ## Remove Share Holder
@@ -61,23 +59,14 @@ percent | String | The percentage of income
 > To delete share holder use this code:
 
 ```shell
-curl "https://api.openfuture.io/api/scaffolds/0x0000000000000000000000000000000000000000/holders"
+curl "https://api.openfuture.io/api/scaffolds/0x0000000000000000000000000000000000000000/holders/{holderAddress}"
   -X DELETE
   -H "Authorization: OPEN_KEY"
   -H "Content-Type: application/json"
-  -d '{
-        "address": "0x1c297f40beb075936d6dbe4b245b92738867ecb1"
-    }'
 ```
 
 The endpoint removes share holder.
 
 ### HTTP Request
 
-`DELETE https://api.openfuture.io/api/scaffolds/0x0000000000000000000000000000000000000000/holders`
-
-### Request attributes:
-
-Attribute | Type | Description
---------- | -------- |-----------
-address | String | The address of wallet of share holder
+`DELETE https://api.openfuture.io/api/scaffolds/0x0000000000000000000000000000000000000000/holders/{holderAddress}`
