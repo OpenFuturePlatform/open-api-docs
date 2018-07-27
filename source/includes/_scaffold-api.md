@@ -47,6 +47,7 @@ description | String | The scaffold`s description
 fiatAmount | String | The constant cost of scaffold
 currency | String | The scaffold`s currency
 conversionAmount | String | The dynamic cost of scaffold in Ethereum
+version | ScaffoldVersion | Version of scaffold : `[V1, V2, ...]`
 properties | [ScaffoldPropertyDto](#scaffold-property-dto-attributes)[] | The scaffold`s properties
 enabled | Boolean | The scaffold is activated or deactivated
 
@@ -393,6 +394,16 @@ The endpoint deactivates scaffold.
 <aside class="success">
 Response is presented like <a href='#scaffold-summary-dto-attributes'>ScaffoldSummaryDto</a>.
 </aside>
+
+## Activate scaffold
+
+> To activate scaffold use this code:
+
+```shell
+curl "https://api.openfuture.io/api/scaffolds/0x0000000000000000000000000000000000000000"
+  -X POST
+  -H "Authorization: OPEN_KEY"
+```
 
 ## Get quota
 

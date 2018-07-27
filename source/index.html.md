@@ -16,6 +16,7 @@ includes:
   - scaffold-templates-api
   - share-holder-api
   - errors
+  - scaffold-versions
 
 search: true
 ---
