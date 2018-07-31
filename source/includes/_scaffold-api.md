@@ -403,11 +403,11 @@ The endpoint gets scaffold`s summary.
 
 Attribute | Type | Description
 --------- | -------- |-----------
-scaffold | [ScaffoldDto](#scaffold-dto-attributes)[] | The information about scaffold
+scaffold | [ScaffoldDto](#scaffold-dto-attributes)[] | Information about the scaffold
 transactionIndex | Int | Transaction index
-tokenBalance | Int | Open token count on scaffold
+tokenBalance | Int | Open Token count on the scaffold
 enabled | Boolean | The scaffold is enabled or disabled
-shareHolders | [ShareHolderDto](#share-holder-dto-attributes)[] | Scaffold share holders
+shareHolders | [ShareHolderDto](#share-holder-dto-attributes)[] | Scaffold shareholders
 
 ## Deactivate scaffold
 
