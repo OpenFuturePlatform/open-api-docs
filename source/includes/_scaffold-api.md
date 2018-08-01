@@ -343,14 +343,54 @@ curl "https://api.openfuture.io/api/scaffolds/0x00000000000000000000000000000000
 
 ```json
 {
-    "description": "any_description",
-    "fiatAmount": "123",
-    "fiatCurrency": "usd",
-    "amount": 0.2139521163,
-    "transactionIndex": 0,
-    "developerAddress": "0xdc29484cc9c02ee01015f33bca8bbb5c7293fb54",
-    "tokenBalance": 0,
-    "enabled": false
+  "scaffold": {
+    "address": "0x46D8975abD0fF552e9c06d705Ce021e065BAc772",
+    "user": {
+      "id": 15,
+      "credits": 0,
+      "openKeys": [
+        {
+          "value": "op_pk_698d8d9f-af1a-4db7-9a29-d1536ea50a3b",
+          "enabled": true,
+          "expiredDate": null
+        },
+        {
+          "value": "op_pk_2da2a2fd-bac3-4a67-b251-b3a10e072074",
+          "enabled": true,
+          "expiredDate": null
+        }
+      ],
+      "roles": [
+        {
+          "key": "ROLE_MASTER"
+        }
+      ]
+    },
+    "abi": "[{\"constant\":true,\"inputs\":[],\"name\":\"fiatCurrency\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"activate\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"activated\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_shareHolderAddress\",\"type\":\"address\"}],\"name\":\"deleteShareHolder\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"deactivate\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getScaffoldSummary\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes32\"},{\"name\":\"\",\"type\":\"bytes32\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"address\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_shareHolderAddress\",\"type\":\"address\"},{\"name\":\"_partnerShare\",\"type\":\"uint256\"}],\"name\":\"editShareHolder\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"openScaffoldTransactions\",\"outputs\":[{\"name\":\"customerAddress\",\"type\":\"address\"},{\"name\":\"buy_currency\",\"type\":\"bytes32\"},{\"name\":\"user_id\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"shareHolderAddresses\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_shareHolderAddress\",\"type\":\"address\"},{\"name\":\"_partnerShare\",\"type\":\"uint256\"}],\"name\":\"addShareHolder\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"fiatAmount\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"buy_currency\",\"type\":\"bytes32\"},{\"name\":\"user_id\",\"type\":\"bytes32\"}],\"name\":\"payDeveloper\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_index\",\"type\":\"uint256\"}],\"name\":\"getShareHolderAddressAndShareAtIndex\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"},{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"partners\",\"outputs\":[{\"name\":\"share\",\"type\":\"uint256\"},{\"name\":\"index\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_shareHolderAddress\",\"type\":\"address\"}],\"name\":\"getHoldersShare\",\"outputs\":[{\"name\":\"partnerShare\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"OPENToken\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"scaffoldAmount\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"developerAddress\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"scaffoldTransactionIndex\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_index\",\"type\":\"uint256\"}],\"name\":\"getShareHolderAtIndex\",\"outputs\":[{\"name\":\"shareHolderAddress\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getShareHolderCount\",\"outputs\":[{\"name\":\"count\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"name\":\"_developerAddress\",\"type\":\"address\"},{\"name\":\"_platformAddress\",\"type\":\"address\"},{\"name\":\"_fiatAmount\",\"type\":\"bytes32\"},{\"name\":\"_fiatCurrency\",\"type\":\"bytes32\"},{\"name\":\"_scaffoldAmount\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"_eventType\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"_customerAddress\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"_transactionAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"_scaffoldTransactionIndex\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"buy_currency\",\"type\":\"bytes32\"},{\"indexed\":false,\"name\":\"user_id\",\"type\":\"bytes32\"}],\"name\":\"PaymentCompleted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"_eventType\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"_amount\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"_toAddress\",\"type\":\"address\"}],\"name\":\"FundsDeposited\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"_eventType\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"activated\",\"type\":\"bool\"}],\"name\":\"ActivationScaffold\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"_eventType\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"_shareHolderAddress\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"_share\",\"type\":\"uint256\"}],\"name\":\"ShareHolderEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"_eventType\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"_userAddress\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"PaidForShareHolder\",\"type\":\"event\"}]",
+    "description": "test2",
+    "fiatAmount": "10",
+    "currency": "USD",
+    "conversionAmount": "0.020753993",
+    "developerAddress": "0x57E2FdEff9Be5af5Fe924f77a5404093C8561C7D",
+    "webHook": null,
+    "properties": [
+      {
+        "name": "buy_currency",
+        "type": "STRING",
+        "defaultValue": "+5"
+      },
+      {
+        "name": "user_id",
+        "type": "STRING",
+        "defaultValue": null
+      }
+    ],
+    "version": "V2"
+  },
+  "transactionIndex": 0,
+  "tokenBalance": 0,
+  "enabled": false,
+  "shareHolders": []
 }
 ```
 
@@ -364,14 +404,11 @@ The endpoint gets scaffold`s summary.
 
 Attribute | Type | Description
 --------- | -------- |-----------
-description | String | The scaffold`s description
-fiatAmount | String | The constant cost of scaffold
-fiatCurrency | String | The scaffold`s currency
-amount | BigDecimal | The dynamic cost of scaffold in Ethereum
-transactionIndex | BigInteger | The trasaction`s number
-developerAddress | String | The address of developer`s wallet
-tokenBalance | BigInteger | The count token for activate scaffold
-enabled | Boolean | The scaffold is activated or deactivated
+scaffold | [ScaffoldDto](#scaffold-dto-attributes)[] | Information about the scaffold
+transactionIndex | Int | Transaction index
+tokenBalance | Int | Open Token count on the scaffold
+enabled | Boolean | The scaffold is enabled or disabled
+shareHolders | [ShareHolderDto](#share-holder-dto-attributes)[] | Scaffold shareholders
 
 ## Deactivate scaffold
 
