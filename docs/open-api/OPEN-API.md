@@ -18,7 +18,7 @@ Documentation is available at [https://docs.openfuture.io.](https://docs.openfut
 
 The OPEN Platform API uses several environment variables. All variables are required.
 
-#### Google service
+### Google service
 
 * `GOOGLE_CLIENT_ID`
 * `GOOGLE_CLIENT_SECRET`
@@ -34,7 +34,7 @@ These environment variables are required for your app to utilize OAuth 2.0. To g
 
 Your application's client IDs and service account keys are now listed on the **Credentials** page.  You can click on the client ID to see the details for this account.  Depending on the type of ID you created, you may see your email address, the client secret key, JavaScript origins, or the redirect URIs.  Add the required information to your **GOOGLE_CLIENT_ID** and **GOOGLE_CLIENT_SECRET** environment variables.
 
-#### PostgresSQL service
+### PostgresSQL service
 
 * `POSTGRES_HOST`
 
@@ -48,11 +48,11 @@ Add the name of your PostgreSQL database to the **POSTGRES_DB** environment vari
 
 Set the **POSTGRES_USER** environment variable with the username you want to use to connect to the database.  Set the **POSTGRES_PASSWORD** environment variable that user's password. Using environment variables to configure user authentication to your database is more secure than placing this configuration in your code. **NOTE:** The user you specify in these two environment variables should be a superuser, otherwise you will run into problems.
 
-#### Ethereum client service
+### Ethereum client service
 
 In order to begin working with the Ethereum blockchain you will need to install a client, such as [Parity](https://github.com/paritytech/parity) or [Geth](https://geth.ethereum.org/downloads/). Here is a brief description of the advantages of each:
 
-##### Parity
+#### Parity
 * Written in Rust.
 * Includes a pruning algorithm to prevent hard drive usage from growing exponentially.
 * Includes an easy-to-use browser-based GUI.
@@ -61,7 +61,7 @@ In order to begin working with the Ethereum blockchain you will need to install 
 * Uses the Kovan test network to help you test your application.
 * More feature-complete than Geth.
 
-##### Geth
+#### Geth
 * Written in Go.
 * Considered to be the reference implementation of Ethereum.
 * Uses the Rinkeby test network to help you test your application.

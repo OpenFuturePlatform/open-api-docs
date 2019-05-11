@@ -3,25 +3,8 @@
 ### [Download PDF](/pdf/open_chain_user_guide.pdf)
 
 ***
-
-## TOC
-
-- [OPEN Chain Explorer](#open-chain-explorer)
-- [OPEN Chain Wallet](#open-chain-wallet)
-  - [OPEN Wallet Start Page](#open-wallet-start-page)
-  - [Creating New OPEN Wallet](#creating-new-open-wallet)
-  - [Login to OPEN Wallet Using Private Key](#login-to-open-wallet-using-private-key)
-  - [Restoring OPEN Wallet Using Seed Phrase](#restoring-open-wallet-using-seed-phrase)
-  - [Wallet Dashboard](#wallet-dashboard)
-  - [Transactions Table](#transactions-table) 
-  - [Wallet Menu](#wallet-menu)
-  - [Creating Transaction](#creating-transaction)
-  - [Transaction Types](#transaction-types)
-  - [Delegates Menu](#delegates-menu)
-  - [Delegating Node](#delegating-node)
-  - [Voting](#voting)
   
-# OPEN Chain Explorer
+## OPEN Chain Explorer
 
 OPEN Chain Explorer is a web application that allows viewing OPEN Chain status and statistics. Chain explorer can be found at
 http://explorer.openfuture.io/.
@@ -64,7 +47,7 @@ Below you can see the description of each field on Explorer page:
   - public key
 
   
-# OPEN Chain Wallet
+## OPEN Chain Wallet
 
 OPEN Chain Wallet is a web application that allows interacting with the OPEN Chain (create wallet, transfer and receive OPEN tokens, delegating as an active delegate candidate and voting for active delegate candidates
 
@@ -88,7 +71,7 @@ Following options available to log in OPEN Wallet:
 
 (4) Restore the wallet using the wallet’s seed phrase
 
-# Creating New OPEN Wallet
+## Creating New OPEN Wallet
 
 To create a new OPEN Wallet select “CREATE NEW WALLET” option at Start Page
 

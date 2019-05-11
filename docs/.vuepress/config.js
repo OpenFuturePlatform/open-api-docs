@@ -7,10 +7,18 @@ module.exports = {
     ],
     dest: 'public',
     themeConfig: {
+        sidebarDepth: 5,
         logo: '/images/open-logo.svg',
         nav: [
             {text: 'Home', link: '/'},
-            {text: 'OPEN Chain', link: '/open-chain/OPEN-User-Guide.md'},
+            {
+                text: 'OPEN Chain',
+                items: [
+                    { text: 'User Guide', link: '/open-chain/OPEN-User-Guide.md' },
+                    { text: 'White-Paper', link: '/open-chain/OPEN-Chain-White-Paper.md' },
+                    { text: 'Yellow-Paper', link: '/open-chain/OPEN-Chain-Yellow-Paper.md' },
+                ]
+            },
             {text: 'OPEN API', link: '/open-api/OPEN-API.md'},
         ],
         sidebar: {

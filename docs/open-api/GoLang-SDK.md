@@ -2,18 +2,12 @@
 
 `opengo` is a Go library for interacting with Open Platform API
 
-### Content
-* [Installing](#installing)
-* [Get started](#get-started)
-* [Entity](#entity)
-* [Usage](#usage)
-
-#### Installing
+## Installing
 ```bash
 go get github.com/openfutureplatform/open-api-go-sdk/opengo
 ```
 
-#### Get started
+## Get started
 
 `token` - your Open Platform key
 
@@ -27,10 +21,10 @@ if err != nil {
 fmt.Println("Scaffolds:", scaffolds)
 ```
 
-#### Entities
-##### Scaffold
+## Entities
+### Scaffold
 
-###### Scaffold attributes
+#### Scaffold attributes
 
 Attribute       | Type                                                | Description
 ----------------|-----------------------------------------------------|-----------
@@ -44,7 +38,7 @@ developerAddress|String                                               | Scaffold
 webHook         |String                                               | Scaffold webhook for events
 properties      |[ScaffoldProperty](#scaffold-properties-attributes)[]| Scaffold properties
 
-###### Scaffold properties attributes
+#### Scaffold properties attributes
 
 Attribute   | Type       | Description
 ------------|------------|-----------
@@ -52,7 +46,7 @@ name        |String      | Property name
 type        |PropertyType| Property type
 defaultValue|String      | Property default value
 
-###### Scaffold summary attributes
+#### Scaffold summary attributes
 
 Attribute       | Type                                                | Description
 ----------------|-----------------------------------------------------|-----------
@@ -65,9 +59,9 @@ shareHolders    |[ShareHolder](#share-holder-attributes)              | Scaffold
 
 
 
-##### Transaction
+### Transaction
 
-###### Transaction attributes
+#### Transaction attributes
 
 Attribute       | Type                                                | Description
 ----------------|-----------------------------------------------------|-----------
@@ -75,18 +69,18 @@ scaffold        |[Scaffold](#scaffold-attributes)                     | Scaffold
 event           |[Event](#event)                                      | Event
 
 
-##### Event
+### Event
 
 Each event has field `type` which define an event type
 
-###### Activate scaffold event
+#### Activate scaffold event
 
 Attribute       | Type                                                | Description
 ----------------|-----------------------------------------------------|-----------
 activated       |Boolean                                              |Scaffold state
 type            |String                                               |"ACTIVATED_SCAFFOLD"
 
-###### Added share holder event
+#### Added share holder event
 
 Attribute       | Type                                                | Description
 ----------------|-----------------------------------------------------|-----------
@@ -94,14 +88,14 @@ userAddress     |String                                               |Sharehold
 partnerShare    |BigInteger                                           |Shareholder share
 type            |String                                               |"ADDED_SHARE_HOLDER"
 
-###### Delete share holder event
+#### Delete share holder event
 
 Attribute       | Type                                                | Description
 ----------------|-----------------------------------------------------|-----------
 userAddress     |String                                               |Shareholder address
 type            |String                                               |"DELETED_SHARE_HOLDER"
 
-###### Edit share holder event
+#### Edit share holder event
 
 Attribute       | Type                                                | Description
 ----------------|-----------------------------------------------------|-----------
@@ -109,7 +103,7 @@ userAddress     |String                                               |Sharehold
 partnerShare    |BigInteger                                           |Shareholder share
 type            |String                                               |"EDITED_SHARE_HOLDER"
 
-###### Funds deposited event
+#### Funds deposited event
 
 Attribute       | Type                                                | Description
 ----------------|-----------------------------------------------------|-----------
@@ -117,7 +111,7 @@ amount          |BigInteger                                           |Funds amo
 toAddress       |String                                               |To address
 type            |String                                               |"FUNDS_DEPOSITED"
 
-###### Paid for shareholder event
+#### Paid for shareholder event
 
 Attribute       | Type                                                | Description
 ----------------|-----------------------------------------------------|-----------
@@ -125,7 +119,7 @@ userAddress     |String                                               |Sharehold
 amount          |BigInteger                                           |Paid amount
 type            |String                                               |"PAID_FOR_SHARE_HOLDER"
 
-###### Payment completed event
+#### Payment completed event
 
 Attribute               | Type                                                | Description
 ------------------------|-----------------------------------------------------|-----------
@@ -138,11 +132,11 @@ type                    |String                                               |"
 
 
 
-#### Usage
+## Usage
 
 `OpenGo` - an object that produces requests for each entity type
 
-##### Get All Scaffolds
+### Get All Scaffolds
 
 ```go
 op := opengo.NewOpenGo(token)
@@ -154,7 +148,7 @@ if err != nil {
 fmt.Println("Scaffolds:", scaffolds)
 ```
 
-##### Get a Scaffold
+### Get a Scaffold
 ```go
 op := opengo.NewOpenGo(token)
 ctx := context.Background()
@@ -166,7 +160,7 @@ if err != nil {
 fmt.Println("Scaffold:", scaffold)
 ```
 
-##### Deploy a Scaffold
+### Deploy a Scaffold
 ```go
 op := opengo.NewOpenGo(token)
 ctx := context.Background()
@@ -197,7 +191,7 @@ if err != nil {
 }
 ```
 
-##### Update a Scaffold
+### Update a Scaffold
 ```go
 op := opengo.NewOpenGo(token)
 ctx := context.Background()
@@ -211,7 +205,7 @@ updatedScaffold, _ := op.UpdateScaffold(ctx, *scaffoldForUpdate)
 fmt.Println("Scaffold: ", updatedScaffold)
 ```
 
-##### Get a Scaffold Summary
+### Get a Scaffold Summary
 ```go
 op := opengo.NewOpenGo(token)
 ctx := context.Background()
@@ -223,7 +217,7 @@ if err != nil {
 fmt.Println("Scaffold Summary:", summary)
 ```
 
-##### Get Scaffold Transactions
+### Get Scaffold Transactions
 ```go
 op := opengo.NewOpenGo(token)
 ctx := context.Background()
@@ -235,7 +229,7 @@ if err != nil {
 fmt.Println("Scaffold Transactions:", transactions)
 ```
 
-##### Deactivate a Scaffold
+### Deactivate a Scaffold
 ```go
 op := opengo.NewOpenGo(token)
 ctx := context.Background()
@@ -247,7 +241,7 @@ if err != nil {
 fmt.Println("Scaffold:", deactivatedScaffold)
 ```
 
-##### Get quota
+### Get quota
 ```go
 op := opengo.NewOpenGo(token)
 ctx := context.Background()
@@ -258,7 +252,7 @@ if err != nil {
 fmt.Println("Quota:", quota.CurrentCount)
 ```
 
-##### Add Shareholders
+### Add Shareholders
 ```go
 op := opengo.NewOpenGo(token)
 ctx := context.Background()
@@ -269,7 +263,7 @@ if err != nil {
 fmt.Println("Quota:", quota.CurrentCount)
 ```
 
-##### Update Shareholders
+### Update Shareholders
 ```go
 op := opengo.NewOpenGo(token)
 ctx := context.Background()
@@ -282,7 +276,7 @@ if err != nil {
 fmt.Println("Updated Share Holder Response:", response)
 ```
 
-##### Delete Shareholders
+### Delete Shareholders
 ```go
 op := opengo.NewOpenGo(token)
 ctx := context.Background()

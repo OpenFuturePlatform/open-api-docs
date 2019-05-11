@@ -4,104 +4,7 @@
 
 ***
 
-## TOC
-
-[Consensus](#consensus)
-- [Block Production](#block-production)
-    - [Genesis Block Production](#genesis-block-production)
-    - [Main Block Production](#main-block-production)
-- [Block Validation](#block-validation)
-- [Parameters](#parameters)
-- [Voting](#voting)
-
-[Core](#core)
-- [Models](#models)
-    - [Temporary Metadata](#temporary-metadata)
-    - [Permanent Metadata](#permanent-metadata)
-        - [Transactions](#transactions)
-        - [Blocks](#blocks)
-        - [Contract](#contract)
-    - [Receipts](#receipts)
-    - [State](#state)
-- [Store Synchronization](#store-synchronization)
-    - [Sync Messages](#sync-messages)
-    - [Step of synchronization](#step-of-synchronization)
-        - [Init](#init)
-        - [Epoch Synchronization](#epoch-synchronization)
-        
-[DB checker](#db-checker)
-- [Prepare DB](#prepare-db)
-- [Delete invalid chain part](#delete-invalid-chain-part)
-
-[Cryptography](#cryptography)
-- [Bitcoin Improvement Proposal](#bitcoin-improvement-proposal)
-    - [BIP32 (Hierarchical Deterministic Wallets)](#bip32-hierarchical-deterministic-wallets)
-    - [BIP39 (Mnemonic code for generating deterministic keys)](#bip39-mnemonic-code-for-generating-deterministic-keys)
-- [Asymmetric cryptography](#asymmetric-cryptography)
-    - [Elliptic-curve cryptography](#elliptic-curve-cryptography)
-    - [Private and public keys generation](#private-and-public-keys-generation)
-- [Digital signature](#digital-signature)
-    - [Signing transaction](#signing-transaction)
-    - [Signing Block](#signing-block)
-- [Hash Functions](#hash-functions)
-- [Merkle Root](#merkle-root)
-
-[Network](#network)
-- [Serialization protocol](#serialization-protocol)
-    - [Message header](#message-header)
-    - [Message body](#message-body)
-- [Gossip Protocol](#gossip-protocol)
-- [Time Synchronization](#time-synchronization)
-
-[Smart Contract](#smart-contract)
-- [Creation](#creation)
-    - [Writing a contract](#writing-a-contract)
-- [Validation](#validation)
-- [Evaluation](#evaluation)
-- [Loading](#loading)
-- [Execution](#execution)
-- [State Synchronization](#state-synchronization)
-
-[Remote Procedure Call](#remote-procedure-call)
-- [Get info](#get-info)
-- [Get version](#get-version)
-- [Get uptime](#get-uptime)
-- [Get hardware info](#get-hardware-info)
-- [Get blockchain info](#get-blockchain-info)
-- [Do generate](#do-generate)
-- [Do restore](#do-restore)
-- [Get wallet balance](#get-wallet-balance)
-- [Get wallet votes for delegates](#get-wallet-votes-for-delegates)
-- [Validate address](#validate-address)
-- [Do derive](#do-derive)
-- [Do private import](#do-private-import)
-- [Extended import](#extended-import)
-- [Do key import in WIF format](#do-key-import-in-wif-format)
-- [Get all of genesis blocks](#get-all-of-genesis-blocks)
-- [Get genesis block](#get-genesis-block)
-- [Get previous genesis block](#get-previous-genesis-block)
-- [Get next genesis block](#get-next-genesis-block)
-- [Get all of main blocks](#get-all-of-main-blocks)
-- [Get main block](#get-main-block)
-- [Get previous main block](#get-previous-main-block)
-- [Get next main block](#get-next-main-block)
-- [Send delegate transaction](#send-delegate-transaction)
-- [Get delegate transaction](#get-delegate-transaction)
-- [Get all of reward transactions](#get-all-reward-transactions)
-- [Get reward transaction](#get-reward-transaction)
-- [Get all transfer transactions](#get-all-transfer-transactions)
-- [Send transfer transaction](#send-transfer-transaction)
-- [Get transfer transaction by hash](#get-transfer-transaction-by-hash)
-- [Get transfer transaction by address](#get-transfer-transaction-by-address)
-- [Send vote transaction](#send-vote-transaction)
-- [Get vote transaction](#get-vote-transaction)
-- [Get delegates](#get-delegates)
-- [Get active delegates](#get-active-delegates)
-- [Get delegates view](#get-delegates-view)
-- [Get receipt](#get-receipt)
-- [Get cost of execution/deployment of the contract](#get-cost-of-executiondeployment-of-the-contract)
-
-# Consensus
+## Consensus
 
 
 OOpen Chain consensus is based on the principles of  DPoS and BFT algorithms.
@@ -225,7 +128,7 @@ Voting mechanism is based on Vote-Transaction transmitting.
 
 ![voting](/images/voting.svg "Voting timeline")
 
-# Core
+## Core
 
 This package contains business logic and represents a set of rules, principles, and behavior dependencies of domain objects. This layer consists of business models. The models are represented by domain entities, services that implement the business logic, such as validation of models, repositories designed to transfer business models between the database and the application.
 
@@ -458,7 +361,7 @@ Received blocks that are considered to be valid are added to SyncSession.Storage
 When all epochs are downloaded, they are saved into the DB and the synchronization status is to be changed to SYNCHRONIZED. Synchronization continues until the last relevant block in the network is received.
 
 
-# DB checker
+## DB checker
 
 A DB checker runs before the start of application and it prepares DB for running the application.
 
@@ -490,7 +393,7 @@ In the case when the chain has invalid block DB checker removes part of chain fr
 
 After the validation is complete, the application is started.
 
-# Cryptography
+## Cryptography
 
 Cryptography is one of the core aspects of blockchain technology.
 
@@ -691,7 +594,7 @@ If an attacker changes any parameter in the transaction of the block, transactio
 
 ![Merkle Root 2](/images/merkle-root-2.svg "Invalid Merkle Root")
 
-# Network
+## Network
 
 ## Serialization protocol
 
@@ -741,7 +644,7 @@ For the application to work properly, a correctly synchronized system clock with
 When the application is being started, a ClockChecker requests time offset from the NTP servers, with a certain time interval. If the received offset is has valid values, the application runs in a normal mode, otherwise, if this parameter is not synchronized, the application will require to set the correct time. If it is not fulfilled, correct functioning is not guaranteed.
 
 
-# Smart Contract
+## Smart Contract
 
 Smart contracts are account holding objects on the Open Platform blockchain. They contain code functions, take decisions, store data, and send ether to others. Contracts are defined by their creators, but their execution, and by extension the services they offer, is provided by the Open Platform network itself. They will exist and be executable as long as the whole network exists, and will disappear only in the case if they were programmed to self destruct.
  
@@ -856,7 +759,7 @@ Each contract has an inner state that includes a number of variables, they all a
 Before the contract is executed, its state is loaded from the DB and pushed into the instance.
 After a successful execution, the inner state of the contract is serialized and stored in the DB for the next executions. When execution fails, the state does not change.
 
-# Remote Procedure Call
+## Remote Procedure Call
 
 The RPC is used to call REST-endpoints.
 
