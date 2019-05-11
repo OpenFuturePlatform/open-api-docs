@@ -1,10 +1,11 @@
 module.exports = {
     title: 'OPEN Platform',
-    description: 'Open Platform description',
+    description: 'OPEN Platform Documentation: start building your decentralized application today',
     head: [
         ['link', { rel: 'icon', href: '/images/favicon.png' }]
     ],
     themeConfig: {
+        logo: '/images/open-logo.svg',
         nav: [
             {text: 'Home', link: '/'},
             {text: 'OPEN Chain', link: '/open-chain/OPEN-User-Guide.md'},
