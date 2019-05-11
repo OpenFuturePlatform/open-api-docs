@@ -1,6 +1,6 @@
 module.exports = {
-    title: 'OPEN Platform',
-    description: 'OPEN Platform Documentation: start building your decentralized application today',
+    title: 'OPEN Platform Documentation',
+    description: 'Start building your decentralized application today',
     head: [
         ['link', { rel: 'icon', href: '/images/favicon.png' }]
     ],
