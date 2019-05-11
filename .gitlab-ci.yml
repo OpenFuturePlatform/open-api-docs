@@ -1,4 +1,6 @@
-image: ruby:2.3
+image: docker:latest
+services:
+  - docker:dind
 
 stages:
   - tests
@@ -6,21 +8,16 @@ stages:
   - deploy
   - certificates
 
-cache:
-  paths:
-    - vendor
-
 
 ##############
 # Tests
 ##############
 test:
   stage: tests
+  image: node:9.11.1
   script:
-    - apt-get update -yqqq
-    - apt-get install -y nodejs
-    - bundle install --path vendor
-    - bundle exec middleman build
+    - npm install
+    - npm run docs:build
   except:
     - master
     - schedules
@@ -30,13 +27,13 @@ test:
 ##############
 pages:
   stage: build
+  image: node:9.11.1
   script:
-    - apt-get update -yqqq
-    - apt-get install -y nodejs
-    - bundle install --path vendor
-    - bundle exec middleman build
-  after_script:
-    - mv build/ public/
+    - npm install
+    - npm run docs:build
+  cache:
+    paths:
+      - node_modules/
   artifacts:
     paths:
       - public
@@ -44,6 +41,7 @@ pages:
     - master
   except:
     - schedules
+
 
 ################
 # Deploy
@@ -57,7 +55,7 @@ pages:
   - ssh-keyscan $DEPLOY_HOST >> ~/.ssh/known_hosts
   - chmod 644 ~/.ssh/known_hosts
 
-deploy-to-server:
+.deploy-to-server:
   stage: deploy
   before_script: *before_deploy
   script:
@@ -69,6 +67,7 @@ deploy-to-server:
     - master
   except:
     - schedules
+
 
 ################
 # Certificates
