@@ -1,9 +1,11 @@
 module.exports = {
     title: 'OPEN Platform Documentation',
     description: 'Start building your decentralized application today',
+    base: '/docs/',
     head: [
         ['link', { rel: 'icon', href: '/images/favicon.png' }]
     ],
+    dest: 'public',
     themeConfig: {
         logo: '/images/open-logo.svg',
         nav: [

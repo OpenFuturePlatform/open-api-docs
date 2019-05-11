@@ -7,3 +7,5 @@ _yardoc
 doc/
 .idea/
 *.iml
+public/
+docs/.vuepress/dist
