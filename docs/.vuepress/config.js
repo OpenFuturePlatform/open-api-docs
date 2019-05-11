@@ -1,6 +1,9 @@
 module.exports = {
     title: 'OPEN Platform',
     description: 'Open Platform description',
+    head: [
+        ['link', { rel: 'icon', href: '/images/favicon.png' }]
+    ],
     themeConfig: {
         nav: [
             {text: 'Home', link: '/'},
