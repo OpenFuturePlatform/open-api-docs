@@ -4,33 +4,7 @@
 
 ***
 
-## TOC
-
-- [Introduction](#introduction)
-  - [Existing Concepts](#existing-concepts)        	
-    - [Blockchains](#blockchains)	
-    - [Forks](#forks)
-    - [Smart Contracts](#smart-contracts)    	
-  - [Consensus](#consensus)       	
-    - [Proof of Work (PoW)](#proof-of-work) 
-    - [Proof of Stake (PoS)](#proof-of-stake) 
-    - [Delegated Proof of Stack (DPoS)](#delegated-proof-of-stack)	
-    - [Byzantine Fault Tolerance (BFT)](#byzantine-fault-tolerance)  	
-- [OPEN Chain](#open-chain)
-  - [Accounts](#accounts)   	
-    - [Wallet](#wallet)    	
-      - [Keystore File](#keystore-file)  
-    - [Node](#node)     	
-    - [Smart Contract](#smart-contract)	
-  - [Transactions](#transactions) 
-    - [Receipts](#receipts)   
-    - [States](#states)   	
-  - [Consensus Algorithm](#consensus-algorithm)     	
-  - [Blockchain](#blockchain)	
-    - [Genesis Block](#genesis-block)  	
-    - [Main Block](#main-block)
-
-# Introduction
+## Introduction
 
 At the current moment, we can observe how the blockchain technology is changing the approaches to the development of business transaction software. Now practically all the industries are deeply interested in the implementation of the emerging technologies and are seeking opportunities to utilize its potential and capacities for translating into life their business ideas and increasing efficiency of their projects.
 Today there is a plenty of various blockchain solutions but all of them are different and can’t be approached in the same way.
@@ -80,7 +54,7 @@ As a result of a deterministic selection of block producers, transactions are co
  
 When it comes to the distributed systems, Byzantine Fault Tolerance (BFT) refers to the ability of a distributed computer network to function as desired. Even if there are some nodes in the system that are failing or transferring incorrect information to other peers, either accidentally or purposely, the system will overcome failures and reach consensus.
  
-# OPEN Chain
+## OPEN Chain
 
 OPEN Chain is created to provide a convenient and flexible technology to develop blockchain solutions and decentralized applications.
 The logic of OPEN Chain presupposes the existence of separate modules. Each of them can be substituted with another one to satisfy your individual requirements. This approach makes it possible to use OPEN Chain in a variety of different projects.
