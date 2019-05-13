@@ -1,7 +1,3 @@
-image: docker:latest
-services:
-  - docker:dind
-
 stages:
   - tests
   - build
@@ -56,6 +52,7 @@ test:
   - chmod 644 ~/.ssh/known_hosts
 
 deploy-to-server:
+  image: ubuntu:18.04
   stage: deploy
   before_script: *before_deploy
   script:
