@@ -19,13 +19,13 @@ test:
     - npm install
     - npm run docs:build
   except:
-    - master
     - schedules
+
 
 ##############
 # Build
 ##############
-pages:
+.pages:
   stage: build
   image: node:9.11.1
   script:
@@ -55,7 +55,7 @@ pages:
   - ssh-keyscan $DEPLOY_HOST >> ~/.ssh/known_hosts
   - chmod 644 ~/.ssh/known_hosts
 
-.deploy-to-server:
+deploy-to-server:
   stage: deploy
   before_script: *before_deploy
   script:
