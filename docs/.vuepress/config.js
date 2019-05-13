@@ -6,6 +6,7 @@ module.exports = {
     ],
     dest: 'public',
     themeConfig: {
+        logoLink: "https://www.openfuture.io/",
         sidebarDepth: 5,
         logo: '/images/open-logo.svg',
         nav: [
@@ -36,3 +37,4 @@ module.exports = {
         },
     }
 };
+
