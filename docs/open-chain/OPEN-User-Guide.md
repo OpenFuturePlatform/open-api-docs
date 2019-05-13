@@ -7,7 +7,7 @@
 ## OPEN Chain Explorer
 
 OPEN Chain Explorer is a web application that allows viewing OPEN Chain status and statistics. Chain explorer can be found at
-http://explorer.openfuture.io/.
+[http://explorer.openfuture.io/](http://explorer.openfuture.io/).
 
 ![Explorer Openfuture](/images/explorer-openfuture.png "Explorer Openfuture")
 
