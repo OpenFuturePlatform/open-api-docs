@@ -1,4 +1,4 @@
-# JVM-SDK
+# JVM SDK
 
 OpenJ is a library for interaction with Open Platform.
 
