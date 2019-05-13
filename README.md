@@ -1,1 +1,0 @@
-# OPEN Platform Documentation 

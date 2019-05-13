@@ -1,31 +1,13 @@
-image: docker:latest
-services:
-  - docker:dind
-
 stages:
-  - tests
   - build
   - deploy
   - certificates
 
 
 ##############
-# Tests
-##############
-test:
-  stage: tests
-  image: node:9.11.1
-  script:
-    - npm install
-    - npm run docs:build
-  except:
-    - master
-    - schedules
-
-##############
 # Build
 ##############
-pages:
+build:
   stage: build
   image: node:9.11.1
   script:
@@ -37,8 +19,6 @@ pages:
   artifacts:
     paths:
       - public
-  only:
-    - master
   except:
     - schedules
 
@@ -55,7 +35,8 @@ pages:
   - ssh-keyscan $DEPLOY_HOST >> ~/.ssh/known_hosts
   - chmod 644 ~/.ssh/known_hosts
 
-.deploy-to-server:
+deploy-to-server:
+  image: ubuntu:18.04
   stage: deploy
   before_script: *before_deploy
   script:
