@@ -1,27 +1,13 @@
 stages:
-  - tests
   - build
   - deploy
   - certificates
 
 
 ##############
-# Tests
-##############
-test:
-  stage: tests
-  image: node:9.11.1
-  script:
-    - npm install
-    - npm run docs:build
-  except:
-    - schedules
-
-
-##############
 # Build
 ##############
-.pages:
+build:
   stage: build
   image: node:9.11.1
   script:
@@ -33,8 +19,6 @@ test:
   artifacts:
     paths:
       - public
-  only:
-    - master
   except:
     - schedules
 
