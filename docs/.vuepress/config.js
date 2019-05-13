@@ -2,7 +2,7 @@ module.exports = {
     title: 'OPEN Platform Documentation',
     description: 'Start building your decentralized application today',
     head: [
-        ['link', { rel: 'icon', href: '/images/favicon.png' }]
+        ['link', { rel: 'icon', href: '/images/favicon.png' }],
     ],
     dest: 'public',
     themeConfig: {
@@ -14,8 +14,8 @@ module.exports = {
                 text: 'OPEN Chain',
                 items: [
                     { text: 'User Guide', link: '/open-chain/OPEN-User-Guide.md' },
-                    { text: 'White-Paper', link: '/open-chain/OPEN-Chain-White-Paper.md' },
-                    { text: 'Yellow-Paper', link: '/open-chain/OPEN-Chain-Yellow-Paper.md' },
+                    { text: 'White Paper', link: '/open-chain/OPEN-Chain-White-Paper.md' },
+                    { text: 'Yellow Paper', link: '/open-chain/OPEN-Chain-Yellow-Paper.md' },
                 ]
             },
             {text: 'OPEN API', link: '/open-api/OPEN-API.md'},
