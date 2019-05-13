@@ -2,16 +2,6 @@
 
 Open-api-sdk is a library for interaction with Open Platform.
 
-## Content
-
-
-* [Installing](#installing)
-* [Get started](#get-started)
-* [API](#api)
-* [Scaffold](#scaffold)
-* [Shareholder](#shareholder)
-
-
 ## Installing
 Using pip:
 ```sh
@@ -38,7 +28,7 @@ op = OpenPy(open_key)
 
 In the following examples, it is assumed that `op` is a result of instantiating the `OpenPlatform` class with the `open_key`
 
-### API
+## API
 
 ### Page request attributes
 
@@ -54,7 +44,7 @@ Attribute | Type | Description
 totalCount|Long  | Total count of entities in a database
 list      |[]   | List of entities with type T (T is generic)
 
-### Scaffold
+## Scaffold
 
 #### Scaffold attributes
 
@@ -190,7 +180,7 @@ limitCount      |Int                                                  | Limit of
 ```python
 quota = op.scaffold.get_quota()
 ```
-### Shareholder
+## Shareholder
 
 #### Shareholder attributes
 
