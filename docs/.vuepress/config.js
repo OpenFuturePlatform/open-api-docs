@@ -31,6 +31,7 @@ module.exports = {
                 'OPEN-API.md',
                 'GoLang-SDK.md',
                 'Python-SDK.md',
+                'JVM-SDK.md',
                 'JS-SDK.md',
                 'Spring-Boot-Starter.md',
             ],
