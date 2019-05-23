@@ -2,7 +2,7 @@
 home: true
 heroImage: /images/main-image.png
 actionText: Get Started →
-actionLink: /open-chain/OPEN-User-Guide.md
+actionLink: /OPEN-API.md
 footer: © 2019 OPEN. All Rights Reserved
 ---
   
