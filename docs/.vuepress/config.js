@@ -11,17 +11,17 @@ module.exports = {
         logo: '/images/open-logo.svg',
         sidebar: {
             '/': [
+                'OPEN-User-Guide.md',
+                'OPEN-Chain-White-Paper.md',
+                'OPEN-Chain-Yellow-Paper.md',
                 'OPEN-API.md',
                 'GoLang-SDK.md',
                 'Python-SDK.md',
                 'JVM-SDK.md',
                 'JS-SDK.md',
                 'Spring-Boot-Starter.md',
-                'OPEN-User-Guide.md',
-                'OPEN-Chain-White-Paper.md',
-                'OPEN-Chain-Yellow-Paper.md',
             ],
         },
     }
-}; 
+};
 
