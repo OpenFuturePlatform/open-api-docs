@@ -7,7 +7,7 @@
 ## Consensus
 
 
-OOpen Chain consensus is based on the principles of  DPoS and BFT algorithms.
+Open Chain consensus is based on the principles of  DPoS and BFT algorithms.
 In OPEN consensus N nodes are elected to perform a role of Active Delegates for each Epoch. An Epoch is a predetermined interval (e.g. 21 blocks) during which an Active Delegates set is fixed. The duration of each Epoch is limited by Timeslots. Number of Timeslots may differ in accordance with a number of Timeslots required to reach the necessary blocks amount. For each Timeslot, a Timeslot-Leader is defined. Timeslot-Leader is one of the Active Delegates who produces the block. At that time, the rest of the Active Delegates act as validators. Each Timeslot includes five major phases:
 
 - PREPARE – the phase includes an appointment of a Timeslot-Leader, production of a block, block broadcasting
@@ -78,7 +78,7 @@ Block validation is executed once the node accepts an incoming block. Active del
 - The seceipts merkle root is valid
 - The reward transaction is created correctly
 - The transactions are valid
-- esulted receipts and states coincide with the message’s ones
+- Resulted receipts and states coincide with the message’s ones
 
 If the validation process ends successfully, a node considers such a block to be a valid candidate to be stored. But before it becomes possible, a node should accumulate a specific number of BlockApprovalMessages:
 
@@ -98,7 +98,7 @@ The table below describes the parameters used in the consensus mechanism.
 
 | Name | Value | Description |
 | ----- |:------:| ------:|
-| epochHeight | 21 | Number of main blocks in a single epoch. When this number is reached, it means that the next block should be agenesis one and it will start new a epoch |
+| epochHeight | 21 | Number of main blocks in a single epoch. When this number is reached, it means that the next block should be a genesis one and it will start new a epoch |
 | delegatesCount | 21 | Number of active delegates in one epoch that are to be fetched with s rating order |
 | blockCapacity | 1000 | Maximum amount of transfer transactions to be packed in the main block |
 | timeSlotDuration | 6000 | Amount of time to create block and broadcast it to network |
@@ -771,7 +771,7 @@ The RPC is used to call REST-endpoints.
 | [/rpc/info/getHardwareInfo](#get-hardware-info) | Get node hardware info: CPU and RAM info, total storage size and network interfaces info. | + |  |
 | [/rpc/explorer/info](#get-blockchain-info) | Get information about blockchain | + |  |
 | [/rpc/account/doGenerate](#do-generate) | Generate a new account |  | + |
-| [/rpc/account/doRespore](#do-restore) | Restore an account with a seed phrase |  | + |
+| [/rpc/account/doRestore](#do-restore) | Restore an account with a seed phrase |  | + |
 | [/rpc/accounts/wallets/{address}/balance](#get-wallet-balance) | Get a wallet balance by the wallet address |  | + |
 | [/rpc/accounts/wallets/{address}/delegates](#get-wallet-votes-for-delegates) | Get wallet votes for delegates |  | + |
 | [/rpc/accounts/wallets/validateAddress](#validate-address) | Validate a wallet address |  | + |
@@ -1069,7 +1069,7 @@ Restore an account with a seed phrase
 
 Type: POST
 
-Path: /rpc/account/doRespore
+Path: /rpc/account/doRestore
 
 Response:
 
