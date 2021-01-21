@@ -3,6 +3,6 @@ home: true
 heroImage: /images/main-image.png
 actionText: Get Started →
 actionLink: /OPEN-User-Guide.md
-footer: © 2020 OPEN. All Rights Reserved
+footer: © 2021 OPEN. All Rights Reserved
 ---
   
