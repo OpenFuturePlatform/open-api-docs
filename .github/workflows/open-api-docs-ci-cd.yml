@@ -1,0 +1,55 @@
+name: Open API Docs CI/CD
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+
+  deploy:
+    name: Deploy docs
+    runs-on: ubuntu-latest
+
+    services:
+
+      npm:
+        image: node:9.11.1
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build documentation
+        run: |
+          npm install
+          npm run docs:build
+
+      - name: Setup SSH connection
+        run: |
+          eval $(ssh-agent -s)
+          echo "${{ secrets.DEPLOY_KEY }}" > deploy_key
+          chmod 600 ./deploy_key
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          ssh-keyscan ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: Update files
+        run: rsync -avzhO --no-p --no-g --delete -e "ssh -i ./deploy_key" public/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/var/www/docs.openfuture.io/
+
+      - name: Update SSL certificate
+        run: |
+          ssh -i ./deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "
+                docker run --rm --name certbot  \
+                           -v /etc/letsencrypt:/etc/letsencrypt \
+                           -v /var/www/certbot:/var/www/certbot \
+                           -v /var/log/letsencrypt:/var/log/letsencrypt \
+                           certbot/certbot \
+                           certonly --webroot -w /var/www/certbot/ \
+                           -d docs.openfuture.io \
+                           --renew-by-default -m team@openfuture.io --eff-email --agree-tos --manual-public-ip-logging-ok
+              "
+          ssh -i ./deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "
+                sudo service nginx reload"
