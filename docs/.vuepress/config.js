@@ -3,9 +3,9 @@ module.exports = {
     description: 'Start building your decentralized application today',
     head: [
         ['link', { rel: 'icon', href: '/images/favicon.png' }],
-        ['script', {}, `window.onload = function() {
-                        const currentYear = new Date().getFullYear();
-                        document.getElementsByClassName("footer")[0].innerHTML = \`© \${currentYear} OPEN. All Rights Reserved\`};`]
+        ['script', {}, 'window.onload = function() {\n' +
+        '                        const currentYear = new Date().getFullYear();\n' +
+        '                        document.getElementsByClassName("footer")[0].innerHTML = \\`© \\${currentYear} OPEN. All Rights Reserved\\`};']
     ],
     dest: 'public',
     themeConfig: {
@@ -27,4 +27,3 @@ module.exports = {
         },
     }
 };
-
