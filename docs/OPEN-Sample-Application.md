@@ -2,11 +2,11 @@
 ### [Download PDF](/pdf/open_platform_sample_application.pdf)
 ## Create Application
 #### [Login](https://api.openfuture.io/) and move to Application page 
-![Application List](/images/sa/applications-list-page.png "Application List")
+![Application List](/images/applications-list-page.png "Application List")
 #### Click Add Application
-![New Application Create](/images/sa/new-application-create-page.png "New Application Create")
+![New Application Create](/images/new-application-create-page.png "New Application Create")
 #### After creation go details of application
-![Application Detail](/images/sa/application-detail-page.png "Application Detail")
+![Application Detail](/images/application-detail-page.png "Application Detail")
 Below you can see the description of each field:
 
 - Access Key — used for encryption 
@@ -17,19 +17,19 @@ Wallets can be generated manually or by API
 ## WordPress Integration
 
 ### Install WooCommerce Open Platform Gateway plugin
-![Install plugin](/images/sa/wordpress-plugin-activate.png "Install Plugin")
+![Install plugin](/images/wordpress-plugin-activate.png "Install Plugin")
 
 ### Manage WooCommerce Open Platform Gateway plugin
-![Manage plugin](/images/sa/wordpress-plugin-settings.png "Manage Plugin")
+![Manage plugin](/images/wordpress-plugin-settings.png "Manage Plugin")
 
 ### Manage Payment WooCommerce Open Platform Gateway plugin
-![Manage payment plugin](/images/sa/wordpress-plugin-payment-manage.png "Manage Payment")
+![Manage payment plugin](/images/wordpress-plugin-payment-manage.png "Manage Payment")
 
 ### WooCommerce Open Platform Gateway plugin on checkout page of e-commerce site
-![Checkout page](/images/sa/wordpress-checkout.png "Checkout page")
+![Checkout page](/images/wordpress-checkout.png "Checkout page")
 
-### Open Widget after checkout
-![Open Widget](/images/sa/open-widget.png "Open Widget")
+### Open Widget Checkout
+![Open Widget](/images/open-widget.png "Open Widget")
 
 ## Wallet API
 
