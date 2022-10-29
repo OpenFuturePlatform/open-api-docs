@@ -16,6 +16,7 @@ module.exports = {
                 'OPEN-Chain-White-Paper.md',
                 'OPEN-Chain-Yellow-Paper.md',
                 'OPEN-Sample-Application.md',
+                'OPEN-Trust-Integration.md',
                 'OPEN-API.md',
                 'GoLang-SDK.md',
                 'Python-SDK.md',
