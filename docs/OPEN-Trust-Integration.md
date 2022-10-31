@@ -1,10 +1,9 @@
 # OPEN Trust Wallet
-###Open API now integrated to Trust Wallet Library to:
 ![Open Trust](/images/open-trust.png "Open Trust")
 ### 1. Generate HD Wallet
 ![Generate HD Wallet](/images/open-trust-generate-wallet.png "Generate HD Wallet")
 ### 2. Import Wallet
-####2.1 Import Wallet with Private Key
+#### 2.1 Import Wallet with Private Key
 
 ![Import Wallet](/images/open-trust-import-wallet.png "Import Wallet")
 #### 2.2 Private key storage
