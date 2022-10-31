@@ -42,30 +42,31 @@ The part working with passwords is not trivial as well. Any time when password i
 
 These type of functions have many strengths:
 
-Non reversible
-Slower to calculate
-More RAM-intensive (which is the weak point of GPUs)
-Defining the number of iterations of the cryptographic function used. The more iterations, the more expensive the calculation will be
+* Non reversible
+* Slower to calculate
+* More RAM-intensive (which is the weak point of GPUs)
+* Defining the number of iterations of the cryptographic function used. The more iterations, the more expensive the calculation will be
 
 Open Platform uses PBKDF2. PBKDF2 is a simple cryptographic key derivation function, which is resistant to dictionary attacks and rainbow table attacks.
 
 PBKDF2 takes several input parameters and produces the derived key as output:
 
-key = pbkdf2(password, salt, iterations-count, hash-function, derived-key-len)
+**key = pbkdf2(password, salt, iterations-count, hash-function, derived-key-len)**
 
 Technically, the input data for PBKDF2 consists of:
 
-password – "raw_password"
-salt – securely generated random word transformed to bytes.
-iterations-count, e.g. 1024 iterations
-hash-function for calculating HMAC, e.g. SHA256
-derived-key-len for the output
+* password – "raw_password"
+* salt – securely generated random word transformed to bytes.
+* iterations-count, e.g. 1024 iterations
+* hash-function for calculating HMAC, e.g. SHA256
+* derived-key-len for the output
 The output data is the derived key of requested length (e.g. 256 bits). Open Platform uses 256 bits which is 32 UTF-8 bytes length.
 
 The following steps are performed when a user is interacting with the Open Platform.
 
-A user imports private keys to the Open Platform along with any desired password
-The platform derives the key with PBKDF2
-Raw private key is encrypted with the AES using the derived key and stored in the database and associated with the user.
-The user wants to make an operation with the wallet, he provides the original password, the Open Platform transforms it with PBKDF2 function and decrypts private key and performs the operation.
+1. A user imports private keys to the Open Platform along with any desired password
+2. The platform derives the key with PBKDF2
+3. Raw private key is encrypted with the AES using the derived key and stored in the database and associated with the user.
+4. The user wants to make an operation with the wallet, he provides the original password, the Open Platform transforms it with PBKDF2 function and decrypts private key and 
+   performs the operation.
 
