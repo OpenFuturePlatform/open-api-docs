@@ -15,6 +15,7 @@ module.exports = {
                 'OPEN-User-Guide.md',
                 'OPEN-Chain-White-Paper.md',
                 'OPEN-Chain-Yellow-Paper.md',
+                'OPEN-Architecture-overview.md',
                 'OPEN-Sample-Application.md',
                 'OPEN-Trust-Integration.md',
                 'OPEN-API.md',
