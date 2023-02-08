@@ -942,7 +942,8 @@ The endpoint removes share holder.
 ```shell
 curl "https://api.openfuture.io/public/api/v2/wallet/user/generate"
   -X POST
-  -H "Authorization: X-API-KEY"
+  -H "X-API-KEY: vnfjlvnjfavnj432unfjnvfjdkvnvjfdkvndf"
+  -H "X-API-SIGNATURE: vfnjvdfnvjfavnrejrnfjrrj4nrueqvnjvenvj5i4nvjrlvnjkvlnvjvlnuiwufuerohfuw"
   -H "Content-Type: application/json"
   -d '{
         "userId": "test@openfuture.io",
@@ -980,7 +981,8 @@ timestamp | String  | Current timestamp of client
 ```shell
 curl "https://api.openfuture.io/public/api/v2/wallet/order/generate"
   -X POST
-  -H "Authorization: X-API-KEY"
+  -H "X-API-KEY: vnfjlvnjfavnj432unfjnvfjdkvnvjfdkvndf"
+  -H "X-API-SIGNATURE: vfnjvdfnvjfavnrejrnfjrrj4nrueqvnjvenvj5i4nvjrlvnjkvlnvjvlnuiwufuerohfuw"
   -H "Content-Type: application/json"
   -d '{
         "orderId": "test@openfuture.io",
@@ -1022,7 +1024,8 @@ timestamp | String  | Current timestamp of client
 ```shell
 curl "https://api.openfuture.io/public/api/v2/wallet/generate"
   -X POST
-  -H "Authorization: X-API-KEY"
+  -H "X-API-KEY: vnfjlvnjfavnj432unfjnvfjdkvnvjfdkvndf"
+  -H "X-API-SIGNATURE: vfnjvdfnvjfavnrejrnfjrrj4nrueqvnjvenvj5i4nvjrlvnjkvlnvjvlnuiwufuerohfuw"
   -H "Content-Type: application/json"
   -d '{
         "uniqueId": "nvejbvtaen-nvfjvng-vfdnjvdfi-nvjf",
@@ -1139,7 +1142,8 @@ timestamp | String  | Current timestamp of client
 ```shell
 curl "https://api.openfuture.io/public/api/v2/wallet/order/import"
   -X POST
-  -H "Authorization: X-API-KEY"
+  -H "X-API-KEY: vnfjlvnjfavnj432unfjnvfjdkvnvjfdkvndf"
+  -H "X-API-SIGNATURE: vfnjvdfnvjfavnrejrnfjrrj4nrueqvnjvenvj5i4nvjrlvnjkvlnvjvlnuiwufuerohfuw"
   -H "Content-Type: application/json"
   -d '{
         "userId": "test@openfuture.io",
@@ -1176,7 +1180,8 @@ timestamp | String  | Current timestamp of client
 ```shell
 curl "https://api.openfuture.io/public/api/v2/wallet/import"
   -X POST
-  -H "Authorization: X-API-KEY"
+  -H "X-API-KEY: vnfjlvnjfavnj432unfjnvfjdkvnvjfdkvndf"
+  -H "X-API-SIGNATURE: vfnjvdfnvjfavnrejrnfjrrj4nrueqvnjvenvj5i4nvjrlvnjkvlnvjvlnuiwufuerohfuw"
   -H "Content-Type: application/json"
   -d '{
         "uniqueId": "mvfkvmvkvmarek-nrjvgkvngf-vngjrbk",
@@ -1220,7 +1225,7 @@ metadata | Object  | Additional information represented as a map
     "errors": [
         {
             "code": "Size",
-            "field": "password",
+            "field": "password"
         },
         {
             "code": "PasswordsEqualsConstraint"
