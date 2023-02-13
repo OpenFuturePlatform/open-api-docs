@@ -946,15 +946,15 @@ curl "https://api.openfuture.io/public/api/v2/wallet/user/generate"
   -H "X-API-SIGNATURE: vfnjvdfnvjfavnrejrnfjrrj4nrueqvnjvenvj5i4nvjrlvnjkvlnvjvlnuiwufuerohfuw"
   -H "Content-Type: application/json"
   -d '{
-        "userId": "test@openfuture.io",
-        "webhook": "https://myapp.com",
-        "test": true,
         "blockchains": {
           "id": "1",
           "value": "BTC"
         },
         "masterPassword": "MyMasterPassword",
-        "timestamp": "3113213213"
+        "test": true,
+        "timestamp": "3113213213",
+        "userId": "test@openfuture.io",
+        "webhook": "https://myapp.com"
     }'
 ```
 
@@ -968,12 +968,12 @@ The endpoint generates new wallet for given blockchains and starts to observe it
 
 Attribute | Type    | Description
 --------- |---------|-----------
-userId | String  | User identifier which associated with new generated addresses
-webhook | String  | Where to send notifications about new incoming transactions
-test | Boolean | Defines main blockchain networks or their test alternatives
 blockchains | Array   | Which blockchain networks should addresses will be generated in
 masterPassword | String  | The password which private keys will be encrypted with
+test | Boolean | Defines main blockchain networks or their test alternatives
 timestamp | String  | Current timestamp of client
+userId | String  | User identifier which associated with new generated addresses
+webhook | String  | Where to send notifications about new incoming transactions
 
 ### Generate wallet for order
 > To generate new wallet associated with an order use this code:
@@ -985,17 +985,17 @@ curl "https://api.openfuture.io/public/api/v2/wallet/order/generate"
   -H "X-API-SIGNATURE: vfnjvdfnvjfavnrejrnfjrrj4nrueqvnjvenvj5i4nvjrlvnjkvlnvjvlnuiwufuerohfuw"
   -H "Content-Type: application/json"
   -d '{
-        "orderId": "test@openfuture.io",
         "amount": "23.3",
-        "orderCurrency": "USD",
-        "test": true,
         "blockchains": {
           "id": "2",
           "value": "ETH"
         },
-        "webhook": "https://mydomain.com",
         "masterPassword": "DogCatCowSheep",
+        "orderId": "test@openfuture.io",
+        "orderCurrency": "USD",
+        "test": true,
         "timestamp": "5654365436"
+        "webhook": "https://mydomain.com"
     }'
 ```
 
@@ -1009,14 +1009,14 @@ The endpoint generates new wallet for given blockchains and starts to observe it
 
 Attribute | Type    | Description
 --------- |---------|-----------
-orderId | String  | User identifier which associated with new generated addresses
 amount | String  | Price of order
-orderCurrency | String  | Product currency, how it seen in eCommerce product page
-webhook | String  | Where to send notifications about new incoming transactions
-test | Boolean | Defines main blockchain networks or their test alternatives
 blockchains | Array   | Which blockchain networks should addresses will be generated in
 masterPassword | String  | The password which private keys will be encrypted with
+orderId | String  | User identifier which associated with new generated addresses
+orderCurrency | String  | Product currency, how it seen in eCommerce product page
+test | Boolean | Defines main blockchain networks or their test alternatives
 timestamp | String  | Current timestamp of client
+webhook | String  | Where to send notifications about new incoming transactions
 
 ### Generate general wallet
 > To generate new wallet for general usage use this code:
@@ -1028,63 +1028,20 @@ curl "https://api.openfuture.io/public/api/v2/wallet/generate"
   -H "X-API-SIGNATURE: vfnjvdfnvjfavnrejrnfjrrj4nrueqvnjvenvj5i4nvjrlvnjkvlnvjvlnuiwufuerohfuw"
   -H "Content-Type: application/json"
   -d '{
-        "uniqueId": "nvejbvtaen-nvfjvng-vfdnjvdfi-nvjf",
-        "test": true,
         "blockchains": {
           "id": "2",
           "value": "ETH"
         },
         "masterPassword": "DogCatCowSheep",
-        "timestamp": "5654365436",
-        "webhook": "https://mydomain.com",
         "metadata": {
             "prop1": "propValue1",
             "prop2": "propValue2",
             "prop3": "propValue3"
-        }
-    }'
-```
-
-The endpoint generates new wallet for given blockchains and starts to observe it for new transactions.
-
-#### HTTP Request
-
-`POST https://api.openfuture.io/public/api/v2/wallet/order/generate`
-
-#### Request attributes:
-
-Attribute | Type    | Description
---------- |---------|-----------
-uniqueId | String  | Unique identifier which associated with new generated addresses
-webhook | String  | Where to send notifications about new incoming transactions
-test | Boolean | Defines main blockchain networks or their test alternatives
-blockchains | Array   | Which blockchain networks should addresses will be generated in
-masterPassword | String  | The password which private keys will be encrypted with
-timestamp | String  | Current timestamp of client
-metadata | Object  | Additional information represented as a map
-
-### Import wallet for user
-> To import existing wallet associated with user use this code:
-```shell
-curl "https://api.openfuture.io/public/api/v2/wallet/user/import"
-  -X POST
-  -H "Authorization: X-API-KEY"
-  -H "Content-Type: application/json"
-  -d '{
-        "uniqueId": "nvejbvtaen-nvfjvng-vfdnjvdfi-nvjf",
-        "test": true,
-        "blockchains": {
-          "id": "2",
-          "value": "ETH"
         },
-        "masterPassword": "DogCatCowSheep",
+        "test": true,
         "timestamp": "5654365436",
-        "webhook": "https://mydomain.com",
-        "metadata": {
-            "prop1": "propValue1",
-            "prop2": "propValue2",
-            "prop3": "propValue3"
-        }
+        "uniqueId": "nvejbvtaen-nvfjvng-vfdnjvdfi-nvjf",
+        "webhook": "https://mydomain.com"
     }'
 ```
 
@@ -1098,13 +1055,16 @@ The endpoint generates new wallet for given blockchains and starts to observe it
 
 Attribute | Type    | Description
 --------- |---------|-----------
-uniqueId | String  | Unique identifier which associated with new generated addresses
-webhook | String  | Where to send notifications about new incoming transactions
-test | Boolean | Defines main blockchain networks or their test alternatives
 blockchains | Array   | Which blockchain networks should addresses will be generated in
 masterPassword | String  | The password which private keys will be encrypted with
-timestamp | String  | Current timestamp of client
 metadata | Object  | Additional information represented as a map
+test | Boolean | Defines main blockchain networks or their test alternatives
+timestamp | String  | Current timestamp of client
+uniqueId | String  | Unique identifier which associated with new generated addresses
+webhook | String  | Where to send notifications about new incoming transactions
+
+### Import wallet for user
+> To import existing wallet associated with user use this code:
 
 ```shell
 curl "https://api.openfuture.io/public/api/v2/user/import"
@@ -1112,11 +1072,11 @@ curl "https://api.openfuture.io/public/api/v2/user/import"
   -H "Authorization: X-API-KEY"
   -H "Content-Type: application/json"
   -d '{
-        "userId": "test@openfuture.io",
-        "encryptedPrivateKey": "vjnrvnsvlnvoteaj432u04832vieavmetav9249ioertvneauvoind",
+        "encryptedData": "vjnrvnsvlnvoteaj432u04832vieavmetav9249ioertvneauvoind",
         "masterPassword": "DogCatCowSheep",
-        "webhook": "https://mydomain.com",
         "timestamp": "5654365436"
+        "userId": "test@openfuture.io",
+        "webhook": "https://mydomain.com"
     }'
 ```
 
@@ -1130,11 +1090,11 @@ The endpoint imports existing wallet for given blockchains and starts to observe
 
 Attribute | Type    | Description
 --------- |---------|-----------
-uniqueId | String  | Unique identifier which associated with new generated addresses
-encryptedPrivateKey | String  | Private key encrypted with OPEN SDK
+encryptedData | String  | Private key encrypted with OPEN SDK
 masterPassword | String  | The password which private keys will be decrypted with
-webhook | String  | Where to send notifications about new incoming transactions
 timestamp | String  | Current timestamp of client
+uniqueId | String  | Unique identifier which associated with new generated addresses
+webhook | String  | Where to send notifications about new incoming transactions
 
 ### Import wallet for order
 > To import existing wallet associated with an order use this code:
@@ -1146,13 +1106,13 @@ curl "https://api.openfuture.io/public/api/v2/wallet/order/import"
   -H "X-API-SIGNATURE: vfnjvdfnvjfavnrejrnfjrrj4nrueqvnjvenvj5i4nvjrlvnjkvlnvjvlnuiwufuerohfuw"
   -H "Content-Type: application/json"
   -d '{
-        "userId": "test@openfuture.io",
         "amount": "321.43",
-        "orderCurrency": "EUR",
-        "encryptedPrivateKey": "vjnrvnsvlnvoteaj432u04832vieavmetav9249ioertvneauvoind",
+        "encryptedData": "vjnrvnsvlnvoteaj432u04832vieavmetav9249ioertvneauvoind",
         "masterPassword": "DogCatCowSheep",
-        "webhook": "https://mydomain.com"
+        "orderCurrency": "EUR",
         "timestamp": "5654365436"
+        "userId": "test@openfuture.io",
+        "webhook": "https://mydomain.com"
     }'
 ```
 
@@ -1160,19 +1120,19 @@ The endpoint imports existing wallet for given blockchains and starts to observe
 
 #### HTTP Request
 
-`POST https://api.openfuture.io/public/api/v2/wallet/user/order/import`
+`POST https://api.openfuture.io/public/api/v2/wallet/order/import`
 
 #### Request attributes:
 
 Attribute | Type    | Description
 --------- |---------|-----------
-uniqueId | String  | Unique identifier which associated with new generated addresses
 amount | String  | Price of order
-orderCurrency | String  | Product currency, how it seen in eCommerce product page
-encryptedPrivateKey | String  | Private key encrypted with OPEN SDK
+encryptedData | String  | Private key encrypted with OPEN SDK
 masterPassword | String  | The password which private keys will be decrypted with
-webhook | String  | Where to send notifications about new incoming transactions
+orderCurrency | String  | Product currency, how it seen in eCommerce product page
 timestamp | String  | Current timestamp of client
+uniqueId | String  | Unique identifier which associated with new generated addresses
+webhook | String  | Where to send notifications about new incoming transactions
 
 ### Import general wallet
 > To import existing wallet associated with an order use this code:
@@ -1184,16 +1144,16 @@ curl "https://api.openfuture.io/public/api/v2/wallet/import"
   -H "X-API-SIGNATURE: vfnjvdfnvjfavnrejrnfjrrj4nrueqvnjvenvj5i4nvjrlvnjkvlnvjvlnuiwufuerohfuw"
   -H "Content-Type: application/json"
   -d '{
-        "uniqueId": "mvfkvmvkvmarek-nrjvgkvngf-vngjrbk",
-        "encryptedPrivateKey": "vjnrvnsvlnvoteaj432u04832vieavmetav9249ioertvneauvoind",
+        "encryptedData": "vjnrvnsvlnvoteaj432u04832vieavmetav9249ioertvneauvoind",
         "masterPassword": "DogCatCowSheep",
-        "webhook": "https://mydomain.com"
-        "timestamp": "5654365436",
         "metadata": {
             "prop1": "propValue1",
             "prop2": "propValue2",
             "prop3": "propValue3"
-        }
+        },
+        "timestamp": "5654365436",
+        "uniqueId": "mvfkvmvkvmarek-nrjvgkvngf-vngjrbk",
+        "webhook": "https://mydomain.com"
     }'
 ```
 
@@ -1207,12 +1167,12 @@ The endpoint imports existing wallet for given blockchains and starts to observe
 
 Attribute | Type    | Description
 --------- |---------|-----------
-uniqueId | String  | Unique identifier which associated with new generated addresses
-encryptedPrivateKey | String  | Private key encrypted with OPEN SDK
+encryptedData | String  | Private key encrypted with OPEN SDK
 masterPassword | String  | The password which private keys will be decrypted with
-webhook | String  | Where to send notifications about new incoming transactions
-timestamp | String  | Current timestamp of client
 metadata | Object  | Additional information represented as a map
+timestamp | String  | Current timestamp of client
+uniqueId | String  | Unique identifier which associated with new generated addresses
+webhook | String  | Where to send notifications about new incoming transactions
 
 ## Errors
 
