@@ -1127,6 +1127,9 @@ amount | String  | Price of order
 encryptedData | String  | Private key encrypted with OPEN SDK
 orderCurrency | String  | Product currency, how it seen in eCommerce product page
 orderId | String  | Product ID
+blockchainType | String  | Which blockchain networks address associated with
+address | String  | Address that is being imported to the Open Platform
+metadata | Object  | Additional metadata attached to webhook body
 
 ### Import general wallet
 > To import existing wallet associated with an order use this code:
@@ -1139,6 +1142,8 @@ curl "https://api.openfuture.io/public/api/v2/wallet/import"
   -H "X-API-SIGNATURE: vfnjvdfnvjfavnrejrnfjrrj4nrueqvnjvenvj5i4nvjrlvnjkvlnvjvlnuiwufuerohfuw"
   -H "Content-Type: application/json"
   -d '{
+        "address": "gtmrktr;ombtrko;vmtrvoitrmv;tkrovmt;vmt;ok",
+        "blockchainType": "BTC",
         "encryptedData": "vjnrvnsvlnvoteaj432u04832vieavmetav9249ioertvneauvoind",
         "metadata": {
             "prop1": "propValue1",
@@ -1159,8 +1164,9 @@ The endpoint imports existing wallet for given blockchains and starts to observe
 Attribute | Type    | Description
 --------- |---------|-----------
 encryptedData | String  | Private key encrypted with OPEN SDK
-metadata | Object  | Additional information represented as a map
-
+blockchainType | String  | Which blockchain networks address associated with
+address | String  | Address that is being imported to the Open Platform
+metadata | Object  | Additional metadata attached to webhook body
 ## Errors
 
 > Exception response:
