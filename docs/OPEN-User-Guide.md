@@ -277,6 +277,17 @@ In case transaction failed the following information is displayed in User’s Wa
 ![Money Transferring 2](/images/money-transfering-2.png "Money Transfering 2")
 
 - Contract Deploy (the field “TO” is empty, the field “DATA” is the byte code of the contract, “FEE” is the sum of money necessary for the deploy)
+- Inorder to compile and execute contract correctly, that contract class must implement `SmartContract` parent class
+
+![Contract Compile 1](/images/contract-extend-smart-contract.png "Contract Compile 1")
+
+- Implementation of custom contract `FundSmartContract`
+
+![Contract Compile 2](/images/contract-fund-smart-contract.png "Contract Compile 2")
+
+- To get byte code of contract, by compiling, it can be found at `build` folder in java projects
+
+![Contract Compile 3](/images/contract-build-compiled-class.png "Contract Compile 3")
 
 ![Contract Deploy 1](/images/contract-deploy-1.png "Contract Deploy 1")
 
