@@ -34,15 +34,15 @@ jobs:
           chmod 600 ./deploy_key
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
-          ssh-keyscan ${{ env.PRODUCTION_HOST }} >> ~/.ssh/known_hosts
+          ssh-keyscan ${{ vars.PRODUCTION_HOST }} >> ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
 
       - name: Update files
-        run: rsync -avzhO --no-p --no-g --delete -e "ssh -i ./deploy_key" public/ ${{ env.PRODUCTION_USER }}@${{ env.PRODUCTION_HOST }}:/var/www/html/docs.openfuture.io/
+        run: rsync -avzhO --no-p --no-g --delete -e "ssh -i ./deploy_key" public/ ${{ vars.PRODUCTION_USER }}@${{ vars.PRODUCTION_HOST }}:/var/www/html/docs.openfuture.io/
 
       - name: Update SSL certificate
         run: |
-          ssh -i ./deploy_key ${{ env.PRODUCTION_USER }}@${{ env.PRODUCTION_HOST }} "
+          ssh -i ./deploy_key ${{ vars.PRODUCTION_USER }}@${{ vars.PRODUCTION_HOST }} "
                 docker run --rm --name certbot  \
                            -v /etc/letsencrypt:/etc/letsencrypt \
                            -v /var/www/certbot:/var/www/certbot \
@@ -52,5 +52,5 @@ jobs:
                            -d docs.openfuture.io \
                            --renew-by-default -m beksultan@openfuture.io --eff-email --agree-tos --manual-public-ip-logging-ok
               "
-          ssh -i ./deploy_key ${{ env.PRODUCTION_USER }}@${{ env.PRODUCTION_HOST }} "
+          ssh -i ./deploy_key ${{ vars.PRODUCTION_USER }}@${{ vars.PRODUCTION_HOST }} "
                 sudo service nginx reload"
