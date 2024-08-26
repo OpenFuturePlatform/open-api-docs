@@ -8,6 +8,7 @@ on:
 jobs:
 
   deploy:
+    environment: production
     name: Deploy docs
     runs-on: ubuntu-latest
 
@@ -29,19 +30,19 @@ jobs:
       - name: Setup SSH connection
         run: |
           eval $(ssh-agent -s)
-          echo "${{ secrets.DEPLOY_KEY }}" > deploy_key
+          echo "${{ secrets.PRODUCTION_KEY }}" > deploy_key
           chmod 600 ./deploy_key
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
-          ssh-keyscan ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
+          ssh-keyscan ${{ secrets.PRODUCTION_HOST }} >> ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
 
       - name: Update files
-        run: rsync -avzhO --no-p --no-g --delete -e "ssh -i ./deploy_key" public/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/var/www/docs.openfuture.io/
+        run: rsync -avzhO --no-p --no-g --delete -e "ssh -i ./deploy_key" public/ ${{ secrets.PRODUCTION_USER }}@${{ secrets.PRODUCTION_HOST }}:/var/www/html/docs.openfuture.io/
 
       - name: Update SSL certificate
         run: |
-          ssh -i ./deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "
+          ssh -i ./deploy_key ${{ secrets.PRODUCTION_USER }}@${{ secrets.PRODUCTION_HOST }} "
                 docker run --rm --name certbot  \
                            -v /etc/letsencrypt:/etc/letsencrypt \
                            -v /var/www/certbot:/var/www/certbot \
@@ -49,7 +50,7 @@ jobs:
                            certbot/certbot \
                            certonly --webroot -w /var/www/certbot/ \
                            -d docs.openfuture.io \
-                           --renew-by-default -m team@openfuture.io --eff-email --agree-tos --manual-public-ip-logging-ok
+                           --renew-by-default -m beksultan@openfuture.io --eff-email --agree-tos --manual-public-ip-logging-ok
               "
-          ssh -i ./deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "
+          ssh -i ./deploy_key ${{ secrets.PRODUCTION_USER }}@${{ secrets.PRODUCTION_HOST }} "
                 sudo service nginx reload"
